@@ -1,15 +1,12 @@
-# DevOps Capstone Template
+# devops-capstone-project
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
 
 This repository contains the starter code for the project in [**IBM-CD0285EN-SkillsNetwork DevOps Capstone Project**](https://www.coursera.org/learn/devops-capstone-project?specialization=devops-and-software-engineering) which is part of the [**IBM DevOps and Software Engineering Professional Certificate**](https://www.coursera.org/professional-certificates/devops-and-software-engineering)
 
-## Usage
+The project creates a microservice which does CRUD operations on a customer list. It has been slightly started by John Rafrano, but the rest of the code needs to be added for the REST API to be fully functional. All work needs to be saved in this project, as the lab resources used are ephemeral.
 
-You should use this template to start your DevOps Capstone project. It contains all of the code that you will need to get started.
-
-Do Not fork this code! It is meant to be used by pressing the  <span style=color:white;background:green>**Use this Template**</span> button in GitHub. This will copy the code to your own repository with no connection back to the original repository like a fork would. This is what you want.
 
 ## Development Environment
 
