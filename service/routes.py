@@ -60,16 +60,25 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-
-# ... place you code here to LIST accounts ...
+@app.route("/accounts/<id>", methods=["GET"]
+def read_account(id):
+    resp = Account.find(id)
 
 
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-
-# ... place you code here to READ an account ...
-
+@app.route("/accounts/<id>", methods=["GET"]
+def read_account(id):
+    acct = Account.find(id)
+    if acct is null:
+        abort(
+            status.HTTP_404_NOT_FOUND,
+            f"Content-Type must be {media_type}",
+        )   
+    else:
+        data = acct.serialize()
+        return (data, status.HTTP_200_OK)
 
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
