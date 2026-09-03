@@ -71,7 +71,7 @@ def read_account(id):
     if acct == None:
         abort(
             status.HTTP_404_NOT_FOUND,
-            f"Content-Type must be {media_type}",
+            f"{id} is not found",
         )   
     else:
         data = acct.serialize()

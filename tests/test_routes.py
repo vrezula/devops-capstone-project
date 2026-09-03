@@ -133,5 +133,17 @@ class TestAccountService(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
         self.assertEqual(data["name"], account.name)
+        # also test a 404 error. how to verify a not found? after Delete is done
+        resp_404 = self.client.get(
+            f"{BASE_URL}/234897489234", content_type="application/json"
+        )
+        self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
 
+    def test_read_all_accounts(self):
+        """It should return every Account"""
+        resp = self.client.get(
+            "{BASE_URL}", content_type="application/json"
+        )
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        data = resp.get_json()
 
