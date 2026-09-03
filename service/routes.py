@@ -60,18 +60,15 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-@app.route("/accounts/<id>", methods=["GET"]
-def read_account(id):
-    resp = Account.find(id)
 
 
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-@app.route("/accounts/<id>", methods=["GET"]
+@app.route("/accounts/<id>", methods=["GET"])
 def read_account(id):
     acct = Account.find(id)
-    if acct is null:
+    if acct == None:
         abort(
             status.HTTP_404_NOT_FOUND,
             f"Content-Type must be {media_type}",
