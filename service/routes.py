@@ -98,9 +98,13 @@ def read_account(id):
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
-
-# ... place you code here to DELETE an account ...
-
+@app.route("/accounts/<id>", methods=["DELETE"])
+def delete_account(id):
+    acct = Account.find(id)
+    #print(f"acct is {acct}")
+    if acct:
+       acct.delete()  
+    return ("", status.HTTP_204_NO_CONTENT)
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
