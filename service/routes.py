@@ -9,7 +9,6 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
-
 ############################################################
 # Health Endpoint
 ############################################################
@@ -57,9 +56,20 @@ def create_accounts():
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
 
+
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
+@app.route("/accounts", methods=["GET"])
+def read_all_accounts():
+    accts = Account.all()
+    data = ""
+    if len(accts) < 1:
+        # do not do anything with data
+        print("No accounts exist")
+    else:
+        data = accts.serialize()
+    return (data, status.HTTP_200_OK)
 
 
 ######################################################################
@@ -68,7 +78,8 @@ def create_accounts():
 @app.route("/accounts/<id>", methods=["GET"])
 def read_account(id):
     acct = Account.find(id)
-    if acct == None:
+    #print(f"acct is {acct}")
+    if not acct:
         abort(
             status.HTTP_404_NOT_FOUND,
             f"{id} is not found",
