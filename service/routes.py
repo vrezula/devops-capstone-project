@@ -62,15 +62,9 @@ def create_accounts():
 ######################################################################
 @app.route("/accounts", methods=["GET"])
 def read_all_accounts():
-    accts = Account.all()
-    data = ""
-    if len(accts) < 1:
-        # do not do anything with data
-        print("No accounts exist")
-    else:
-        data = accts.serialize()
-    return (data, status.HTTP_200_OK)
-
+    accounts = Account.all()
+    account_list = [account.serialize() for account in accounts]
+    return jsonify(account_list), status.HTTP_200_OK
 
 ######################################################################
 # READ AN ACCOUNT
