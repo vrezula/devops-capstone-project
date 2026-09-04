@@ -97,7 +97,7 @@ def update_account(id):
     acct.update()
     data = acct.serialize()
     return (data, status.HTTP_200_OK)
- 
+
 
 ######################################################################
 # DELETE AN ACCOUNT
