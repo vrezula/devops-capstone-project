@@ -152,7 +152,7 @@ class TestAccountService(TestCase):
     def test_update_account(self):
         """It should update an account"""
         account = self._create_accounts(1)[0]
-        account.name = "John Doe"
+        account.name = "UPDATED"
         resp = self.client.put(
             f"{BASE_URL}/{account.id}", 
             json=account.serialize(),
@@ -164,7 +164,7 @@ class TestAccountService(TestCase):
         """It should try to update a 404 account"""
         account = AccountFactory()
         account.id = 0
-        account.name = "null"
+        account.name = "UPDATED"
         resp = self.client.put(
             f"{BASE_URL}/{account.id}", 
             json=account.serialize(),
