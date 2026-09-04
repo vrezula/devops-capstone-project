@@ -9,6 +9,7 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
+
 ############################################################
 # Health Endpoint
 ############################################################
@@ -66,6 +67,7 @@ def read_all_accounts():
     account_list = [account.serialize() for account in accounts]
     return jsonify(account_list), status.HTTP_200_OK
 
+
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
@@ -77,7 +79,7 @@ def read_account(id):
         abort(
             status.HTTP_404_NOT_FOUND,
             f"{id} is not found",
-        )   
+        )
     else:
         data = acct.serialize()
         return (data, status.HTTP_200_OK)
@@ -96,10 +98,6 @@ def update_account(id):
     return (data, status.HTTP_200_OK)
     
 
-    
-
-
-
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
@@ -108,14 +106,13 @@ def delete_account(id):
     acct = Account.find(id)
     #print(f"acct is {acct}")
     if acct:
-       acct.delete()  
+        acct.delete()  
     return ("", status.HTTP_204_NO_CONTENT)
+
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
