@@ -74,7 +74,7 @@ def read_all_accounts():
 @app.route("/accounts/<id>", methods=["GET"])
 def read_account(id):
     acct = Account.find(id)
-    #print(f"acct is {acct}")
+    # print(f"acct is {acct}")
     if not acct:
         abort(
             status.HTTP_404_NOT_FOUND,
@@ -83,6 +83,7 @@ def read_account(id):
     else:
         data = acct.serialize()
         return (data, status.HTTP_200_OK)
+
 
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
@@ -96,7 +97,7 @@ def update_account(id):
     acct.update()
     data = acct.serialize()
     return (data, status.HTTP_200_OK)
-    
+ 
 
 ######################################################################
 # DELETE AN ACCOUNT
@@ -104,9 +105,9 @@ def update_account(id):
 @app.route("/accounts/<id>", methods=["DELETE"])
 def delete_account(id):
     acct = Account.find(id)
-    #print(f"acct is {acct}")
+    # print(f"acct is {acct}")
     if acct:
-        acct.delete()  
+        acct.delete()
     return ("", status.HTTP_204_NO_CONTENT)
 
 
