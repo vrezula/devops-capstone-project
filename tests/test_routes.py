@@ -22,6 +22,7 @@ BASE_URL = "/accounts"
 
 HTTPS_ENVIRON = {'wsgi.url_scheme': 'https'}
 
+
 ######################################################################
 #  T E S T   C A S E S
 ######################################################################
@@ -150,14 +151,14 @@ class TestAccountService(TestCase):
             f"{BASE_URL}", content_type="application/json"
         )
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
-        data = resp.get_json()
+        resp.get_json()
 
     def test_update_account(self):
         """It should update an account"""
         account = self._create_accounts(1)[0]
         account.name = "UPDATED"
         resp = self.client.put(
-            f"{BASE_URL}/{account.id}", 
+            f"{BASE_URL}/{account.id}",
             json=account.serialize(),
             content_type="application/json"
         )
@@ -169,7 +170,7 @@ class TestAccountService(TestCase):
         account.id = 0
         account.name = "UPDATED"
         resp = self.client.put(
-            f"{BASE_URL}/{account.id}", 
+            f"{BASE_URL}/{account.id}",
             json=account.serialize(),
             content_type="application/json"
         )
