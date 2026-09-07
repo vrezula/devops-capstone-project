@@ -10,8 +10,6 @@ This repository contains the starter code for the project in [**IBM-CD0285EN-Ski
 
 The project creates a microservice which does CRUD operations on a customer list. It has been slightly started by John Rafrano, but the rest of the code needs to be added for the REST API to be fully functional. All work needs to be saved in this project, as the lab resources used are ephemeral.
 
-Pushing does not trigger GitHub actions within an hour, so there is something more needed, it seems.
-
 ## Development Environment
 
 These labs are designed to be executed in the IBM Developer Skills Network Cloud IDE with OpenShift. Please use the links provided in the Coursera Capstone project to access the lab environment.
